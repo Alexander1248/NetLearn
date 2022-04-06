@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    tools:context=".fragments.MenuFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="40pt"
+        android:textColor="@color/blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.055" />
+
+    <Button
+        android:id="@+id/wb"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+
+        android:text="@string/workbench"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/btnTextSize"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.225" />
+
+    <Button
+        android:id="@+id/lib"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="35dp"
+
+        android:text="@string/library"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/btnTextSize"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wb"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/stgs"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="35dp"
+
+        android:text="@string/settings"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/btnTextSize"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wb"
+        app:layout_constraintVertical_bias="0.5
+" />
+</androidx.constraintlayout.widget.ConstraintLayout>

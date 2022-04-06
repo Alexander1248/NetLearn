@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menuFragment">
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.samsung.nnlp.fragments.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/to_library"
+            app:destination="@id/libraryFragment" />
+        <action
+            android:id="@+id/to_settings"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/to_workbench"
+            app:destination="@id/workbenchFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/workbenchFragment"
+        android:name="com.samsung.nnlp.fragments.WorkbenchFragment"
+        android:label="fragment_workbench"
+        tools:layout="@layout/fragment_workbench" >
+        <action
+            android:id="@+id/to_edit"
+            app:destination="@id/editFragment" />
+        <action
+            android:id="@+id/to_train"
+            app:destination="@id/trainFragment" />
+        <argument
+            android:name="nn"
+            app:argType="com.samsung.nnlp.models.neuronet.NeuralNetwork"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/to_io"
+            app:destination="@id/IOFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/libraryFragment"
+        android:name="com.samsung.nnlp.fragments.LibraryFragment"
+        android:label="fragment_library"
+        tools:layout="@layout/fragment_library" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.samsung.nnlp.fragments.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.samsung.nnlp.fragments.EditFragment"
+        android:label="fragment_edit"
+        tools:layout="@layout/fragment_edit" >
+        <argument
+            android:name="nn"
+            app:argType="com.samsung.nnlp.models.neuronet.NeuralNetwork"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/edit_to_wb"
+            app:destination="@id/workbenchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/trainFragment"
+        android:name="com.samsung.nnlp.fragments.TrainFragment"
+        android:label="fragment_train"
+        tools:layout="@layout/fragment_train" >
+        <argument
+            android:name="nn"
+            app:argType="com.samsung.nnlp.models.neuronet.NeuralNetwork"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/IOFragment"
+        android:name="com.samsung.nnlp.IOFragment"
+        android:label="fragment_io"
+        tools:layout="@layout/fragment_io" >
+        <argument
+            android:name="nn"
+            app:argType="com.samsung.nnlp.models.neuronet.NeuralNetwork"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+</navigation>

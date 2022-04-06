@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    tools:context=".fragments.EditFragment">
+
+    <Button
+        android:id="@+id/edit_button"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+
+        android:text="@string/create_nn"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/btnTextSize"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.019"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.93" />
+
+    <Button
+        android:id="@+id/add_button"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+
+        android:text="@string/add"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/btnTextSize"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.019"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.044" />
+
+    <Button
+        android:id="@+id/remove_button"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+
+        android:text="@string/remove"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/btnTextSize"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.023"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.24" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/layer_view"
+        android:layout_width="340dp"
+        android:layout_height="280dp"
+
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.877" />
+
+    <EditText
+        android:id="@+id/first_layer"
+        android:layout_width="235dp"
+        android:layout_height="48dp"
+        android:hint="First Layer Size"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/layer_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.716" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
