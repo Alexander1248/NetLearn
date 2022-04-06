@@ -55,7 +55,7 @@
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/editFragment"
-        android:name="com.samsung.nnlp.fragments.EditFragment"
+        android:name="com.samsung.nnlp.fragments.wb.EditFragment"
         android:label="fragment_edit"
         tools:layout="@layout/fragment_edit" >
         <argument
@@ -69,7 +69,7 @@
     </fragment>
     <fragment
         android:id="@+id/trainFragment"
-        android:name="com.samsung.nnlp.fragments.TrainFragment"
+        android:name="com.samsung.nnlp.fragments.wb.TrainFragment"
         android:label="fragment_train"
         tools:layout="@layout/fragment_train" >
         <argument
@@ -83,7 +83,7 @@
     </fragment>
     <fragment
         android:id="@+id/IOFragment"
-        android:name="com.samsung.nnlp.fragments.IOFragment"
+        android:name="com.samsung.nnlp.fragments.wb.IOFragment"
         android:label="fragment_io"
         tools:layout="@layout/fragment_io" >
         <argument
@@ -94,12 +94,12 @@
     </fragment>
     <fragment
         android:id="@+id/useFragment"
-        android:name="com.samsung.nnlp.fragments.UseFragment"
+        android:name="com.samsung.nnlp.fragments.wb.UseFragment"
         android:label="fragment_use"
         tools:layout="@layout/fragment_use" />
     <fragment
         android:id="@+id/datasetFragment"
-        android:name="com.samsung.nnlp.fragments.DatasetFragment"
+        android:name="com.samsung.nnlp.fragments.wb.DatasetFragment"
         android:label="fragment_dataset"
         tools:layout="@layout/fragment_dataset" >
         <argument

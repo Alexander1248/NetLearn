@@ -42,7 +42,7 @@ public class NetDrawer {
             prevShift = (float) (maxNeurons - layer.getInput().length) / 2;
             for (int i = 0; i < layer.getInput().length; i++)
                 canvas.drawCircle(15 + radius, 15 + (i + prevShift) * vDst + radius, radius, neuron);
-            canvas.drawCircle(50 + radius, 15 + (layer.getInput().length + prevShift) * vDst + radius, radius, neuron);
+            canvas.drawCircle(15 + hDst / 3 + radius, 15 + Math.max(layer.getInput().length + prevShift, layer.getNeurons().length + shift) * vDst + radius, radius, neuron);
 
             for (int i = 0; i < layer.getNeurons().length; i++) {
                 float iy = 15 + (i + shift) * vDst + radius;
@@ -56,7 +56,7 @@ public class NetDrawer {
 
                 float g = (float) Math.max(0, Math.min(1, (layer.getNeurons()[i].getBiasWeight() + 1) / 2));
                 link.setColor(Color.rgb(1 - g, g, 0f));
-                canvas.drawLine(50 + radius * 2, 15 + (layer.getInput().length + prevShift) * vDst + radius, 15 + hDst, iy, link);
+                canvas.drawLine(15 + hDst / 3 + radius * 2, 15 + Math.max(layer.getInput().length + prevShift, layer.getNeurons().length + shift) * vDst + radius, 15 + hDst, iy, link);
             }
         } else {
             prevShift = (float) (maxNeurons - layer.getPrevLayer().getNeurons().length) / 2;
@@ -74,11 +74,11 @@ public class NetDrawer {
 
                 float g = (float) Math.max(0, Math.min(1, (layer.getNeurons()[i].getBiasWeight() + 1) / 2));
                 link.setColor(Color.rgb(1 - g, g, 0f));
-                canvas.drawLine(50 + hDst * layerNum + radius * 2, 15 + (layer.getPrevLayer().getNeurons().length + prevShift) * vDst + radius, 15 + hDst * (layerNum + 1), iy, link);
+                canvas.drawLine(15 + hDst / 3 + hDst * layerNum + radius * 2, 15 + (Math.max(layer.getPrevLayer().getNeurons().length + prevShift, layer.getNeurons().length + shift)) * vDst + radius, 15 + hDst * (layerNum + 1), iy, link);
             }
 
             shift = (float) (maxNeurons - layer.getPrevLayer().getNeurons().length) / 2;
-            canvas.drawCircle(50 + hDst * layerNum + radius, 15 + (layer.getPrevLayer().getNeurons().length + shift) * vDst + radius, radius, neuron);
+            canvas.drawCircle(15 + hDst / 3 + hDst * layerNum + radius, 15 + (Math.max(layer.getPrevLayer().getNeurons().length, layer.getNeurons().length) + shift) * vDst + radius, radius, neuron);
         }
 
 

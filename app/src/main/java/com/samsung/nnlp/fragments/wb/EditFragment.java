@@ -1,4 +1,4 @@
-package com.samsung.nnlp.fragments;
+package com.samsung.nnlp.fragments.wb;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -17,7 +17,6 @@ import android.widget.EditText;
 
 import com.samsung.nnlp.R;
 import com.samsung.nnlp.models.LayerView;
-import com.samsung.nnlp.models.neuronet.AFunction;
 import com.samsung.nnlp.models.neuronet.NeuralNetwork;
 
 
@@ -55,7 +54,10 @@ public class EditFragment extends Fragment {
         if (getArguments() == null) network = new NeuralNetwork();
         else {
             network = (NeuralNetwork) getArguments().getSerializable("nn");
-            if (network.getLayers().size() > 0) fl.setText(Integer.toString(network.getLayers().get(0).getInput().length));
+            if (network.getLayers().size() > 0) {
+                inputSize = network.getLayers().get(0).getInput().length;
+                fl.setText(Integer.toString(inputSize));
+            }
         }
 
 

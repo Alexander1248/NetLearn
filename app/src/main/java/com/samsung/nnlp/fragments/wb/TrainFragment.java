@@ -1,5 +1,6 @@
-package com.samsung.nnlp.fragments;
+package com.samsung.nnlp.fragments.wb;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -16,14 +17,13 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.samsung.nnlp.R;
-import com.samsung.nnlp.models.neuronet.AFunction;
 import com.samsung.nnlp.models.neuronet.NeuralNetwork;
 
 
 public class TrainFragment extends Fragment {
     private NeuralNetwork network;
-    private String inType;
-    private String outType;
+    private String inType = "Digits";
+    private String outType = "Digits";
 
     public TrainFragment() {}
 
@@ -41,6 +41,7 @@ public class TrainFragment extends Fragment {
 
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,6 +49,9 @@ public class TrainFragment extends Fragment {
         else network = (NeuralNetwork) getArguments().getSerializable("nn");
 
         View view = inflater.inflate(R.layout.fragment_train, container, false);
+
+        ((EditText) view.findViewById(R.id.learning_rate)).setText(Double.toString(network.getLearningRate()));
+        ((EditText) view.findViewById(R.id.momentum)).setText(Double.toString(network.getMomentum()));
         ((EditText) view.findViewById(R.id.learning_rate)).addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -81,10 +85,12 @@ public class TrainFragment extends Fragment {
             }
         });
 
+        Bundle bundle = new Bundle();
         ((Spinner) view.findViewById(R.id.input_type)).setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                inType = (String) adapterView.getItemAtPosition(i);
+                bundle.putString("inputType", inType);
             }
 
             @Override
@@ -96,6 +102,7 @@ public class TrainFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 outType = (String) adapterView.getItemAtPosition(i);
+                bundle.putString("outputType", outType);
             }
 
             @Override
@@ -104,10 +111,7 @@ public class TrainFragment extends Fragment {
             }
         });
 
-        Bundle bundle = new Bundle();
         bundle.putSerializable("nn", network);
-        bundle.putSerializable("inputType", inType);
-        bundle.putSerializable("outputType", outType);
         ((Button) view.findViewById(R.id.set_dataset)).setOnClickListener(Navigation.createNavigateOnClickListener(R.id.train_to_dataset, bundle));
         return view;
     }

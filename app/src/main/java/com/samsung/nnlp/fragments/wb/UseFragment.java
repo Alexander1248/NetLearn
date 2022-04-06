@@ -1,4 +1,4 @@
-package com.samsung.nnlp.fragments;
+package com.samsung.nnlp.fragments.wb;
 
 import android.os.Bundle;
 

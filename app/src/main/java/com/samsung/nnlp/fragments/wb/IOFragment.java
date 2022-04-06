@@ -1,4 +1,4 @@
-package com.samsung.nnlp.fragments;
+package com.samsung.nnlp.fragments.wb;
 
 import android.os.Bundle;
 
@@ -12,15 +12,15 @@ import com.samsung.nnlp.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link DatasetFragment#newInstance} factory method to
+ * Use the {@link IOFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DatasetFragment extends Fragment {
+public class IOFragment extends Fragment {
 
-    public DatasetFragment() {}
+   public IOFragment() {}
 
-    public static DatasetFragment newInstance(String param1, String param2) {
-        DatasetFragment fragment = new DatasetFragment();
+   public static IOFragment newInstance(String param1, String param2) {
+        IOFragment fragment = new IOFragment();
 
         return fragment;
     }
@@ -34,6 +34,6 @@ public class DatasetFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_dataset, container, false);
+        return inflater.inflate(R.layout.fragment_io, container, false);
     }
 }
