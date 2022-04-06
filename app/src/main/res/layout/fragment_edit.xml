@@ -74,7 +74,7 @@
         android:layout_width="235dp"
         android:layout_height="48dp"
         android:hint="First Layer Size"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintBottom_toTopOf="@+id/layer_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.8"

@@ -7,6 +7,9 @@ import java.util.List;
 public class NeuralNetwork implements Serializable {
     private final List<Layer> layers;
 
+    private double learningRate = 0.1;
+    private double momentum = 0;
+
     public NeuralNetwork() {
         layers = new ArrayList<>();
     }
@@ -41,11 +44,27 @@ public class NeuralNetwork implements Serializable {
         layers.get(layers.size() - 1).calculateOutLayerError(rightResults);
         for (int i = layers.size() - 2; i >= 0; i--) layers.get(i).calculateInOrHiddenLayerError(layers.get(i + 1));
     }
-    public void calculateNewWeights(double trainSpeed, double momentumCoef) {
-        for (int i = 1; i < layers.size(); i++) layers.get(i).calculateNewWeights(trainSpeed,momentumCoef);
+    public void calculateNewWeights() {
+        for (int i = 1; i < layers.size(); i++) layers.get(i).calculateNewWeights(learningRate, momentum);
     }
 
     public List<Layer> getLayers() {
         return layers;
+    }
+
+    public void setLearningRate(double learningRate) {
+        this.learningRate = learningRate;
+    }
+
+    public void setMomentum(double momentum) {
+        this.momentum = momentum;
+    }
+
+    public double getLearningRate() {
+        return learningRate;
+    }
+
+    public double getMomentum() {
+        return momentum;
     }
 }

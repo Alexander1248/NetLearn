@@ -39,6 +39,9 @@
         <action
             android:id="@+id/to_io"
             app:destination="@id/IOFragment" />
+        <action
+            android:id="@+id/to_use"
+            app:destination="@id/useFragment" />
     </fragment>
     <fragment
         android:id="@+id/libraryFragment"
@@ -74,10 +77,13 @@
             app:argType="com.samsung.nnlp.models.neuronet.NeuralNetwork"
             app:nullable="true"
             android:defaultValue="@null" />
+        <action
+            android:id="@+id/train_to_dataset"
+            app:destination="@id/datasetFragment" />
     </fragment>
     <fragment
         android:id="@+id/IOFragment"
-        android:name="com.samsung.nnlp.IOFragment"
+        android:name="com.samsung.nnlp.fragments.IOFragment"
         android:label="fragment_io"
         tools:layout="@layout/fragment_io" >
         <argument
@@ -85,5 +91,27 @@
             app:argType="com.samsung.nnlp.models.neuronet.NeuralNetwork"
             app:nullable="true"
             android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/useFragment"
+        android:name="com.samsung.nnlp.fragments.UseFragment"
+        android:label="fragment_use"
+        tools:layout="@layout/fragment_use" />
+    <fragment
+        android:id="@+id/datasetFragment"
+        android:name="com.samsung.nnlp.fragments.DatasetFragment"
+        android:label="fragment_dataset"
+        tools:layout="@layout/fragment_dataset" >
+        <argument
+            android:name="nn"
+            app:argType="com.samsung.nnlp.models.neuronet.NeuralNetwork"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="inputType"
+            app:argType="string" />
+        <argument
+            android:name="outputType"
+            app:argType="string" />
     </fragment>
 </navigation>
