@@ -1,4 +1,4 @@
-package com.samsung.nnlp.models;
+package com.samsung.nnlp.models.adapters;
 
 import android.annotation.SuppressLint;
 import android.text.Editable;
@@ -21,10 +21,10 @@ import com.samsung.nnlp.models.neuronet.NeuralNetwork;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LayerView extends RecyclerView.Adapter<LayerView.LayerHolder> {
+public class LayerAdapter extends RecyclerView.Adapter<LayerAdapter.LayerHolder> {
     private final List<LayerShell> layers = new ArrayList<>();
 
-    public LayerView(NeuralNetwork network) {
+    public LayerAdapter(NeuralNetwork network) {
         for (int i = 0; i < network.getLayers().size(); i++)
             layers.add(new LayerShell(
                     network.getLayers().get(i).getNeurons()[0].getFunction(),

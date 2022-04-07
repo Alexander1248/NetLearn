@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.samsung.nnlp.R;
-import com.samsung.nnlp.models.LayerView;
+import com.samsung.nnlp.models.adapters.LayerAdapter;
 import com.samsung.nnlp.models.neuronet.NeuralNetwork;
 
 
@@ -65,7 +65,7 @@ public class EditFragment extends Fragment {
 
         RecyclerView layers = view.findViewById(R.id.layer_view);
         layers.setHasFixedSize(true);
-        layers.setAdapter(new LayerView(network));
+        layers.setAdapter(new LayerAdapter(network));
 
         fl.addTextChangedListener(new TextWatcher() {
             @Override
@@ -86,13 +86,13 @@ public class EditFragment extends Fragment {
         });
 
         add.setOnClickListener(view1 -> {
-            LayerView adapter = (LayerView) layers.getAdapter();
+            LayerAdapter adapter = (LayerAdapter) layers.getAdapter();
             assert adapter != null;
-            adapter.getLayers().add(new LayerView.LayerShell());
+            adapter.getLayers().add(new LayerAdapter.LayerShell());
             adapter.notifyDataSetChanged();
         });
         remove.setOnClickListener(view1 -> {
-            LayerView adapter = (LayerView) layers.getAdapter();
+            LayerAdapter adapter = (LayerAdapter) layers.getAdapter();
             assert adapter != null;
             if (adapter.getLayers().size() > 0) {
                 adapter.getLayers().remove(adapter.getLayers().size() - 1);
@@ -102,7 +102,7 @@ public class EditFragment extends Fragment {
 
         edit.setOnClickListener(view1 -> {
             Bundle bundle = new Bundle();
-            LayerView adapter = (LayerView) layers.getAdapter();
+            LayerAdapter adapter = (LayerAdapter) layers.getAdapter();
             network = new NeuralNetwork();
             assert adapter != null;
             network.initInLayer(adapter.getLayers().get(0).function,adapter.getLayers().get(0).size , inputSize);

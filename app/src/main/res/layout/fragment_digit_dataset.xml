@@ -6,6 +6,7 @@
     tools:context=".fragments.wb.datatype.DigitDatasetFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/digit_data_recycler"
         android:layout_width="200dp"
         android:layout_height="match_parent"/>
 

@@ -6,6 +6,7 @@
     tools:context=".fragments.wb.datatype.ImageDatasetFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/image_data_recycler"
         android:layout_width="200dp"
         android:layout_height="match_parent"/>
 
