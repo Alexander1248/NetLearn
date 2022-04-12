@@ -1,5 +1,8 @@
 package com.samsung.nnlp.models.adapters;
 
+import android.annotation.SuppressLint;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,8 +34,24 @@ public class DigitAdapter extends RecyclerView.Adapter<DigitAdapter.DigitHolder>
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DigitHolder holder, int position) {
-        data.set(position, holder.digitItem.getText().toString());
+    public void onBindViewHolder(@NonNull DigitHolder holder, @SuppressLint("RecyclerView") int position) {
+        holder.digitItem.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                data.set(position, charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
     }
 
     @Override

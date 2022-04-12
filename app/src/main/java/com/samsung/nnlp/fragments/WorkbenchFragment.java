@@ -47,6 +47,9 @@ public class WorkbenchFragment extends Fragment {
 
         Button edit = view.findViewById(R.id.edit);
         Button train = view.findViewById(R.id.train);
+        Button use = view.findViewById(R.id.use);
+        Button save = view.findViewById(R.id.save);
+        Button load = view.findViewById(R.id.load);
         LinearLayout netView = view.findViewById(R.id.net_view);
         NetView nw = new NetView(getContext());
         nw.setNeuralNetwork(network);
@@ -57,6 +60,11 @@ public class WorkbenchFragment extends Fragment {
         bundle.putSerializable("nn", network);
         edit.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.to_edit, bundle));
         train.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.to_train, bundle));
+        use.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.to_use, bundle));
+        bundle.putBoolean("state", false);
+        save.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.to_io, bundle));
+        bundle.putBoolean("state", true);
+        load.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.to_io, bundle));
 
         return view;
     }
