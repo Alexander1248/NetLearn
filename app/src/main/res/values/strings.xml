@@ -10,6 +10,7 @@
     <string name="learning_hint">Less than 1</string>
     <string-array name="types">
         <item>Digits</item>
+        <item>File</item>
         <item>Image</item>
         <item>ImageRGB</item>
     </string-array>
