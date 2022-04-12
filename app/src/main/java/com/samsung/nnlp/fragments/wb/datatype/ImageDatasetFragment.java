@@ -38,8 +38,6 @@ public class ImageDatasetFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_image_dataset, container, false);
-        recycler = view.findViewById(R.id.digit_data_recycler);
-        recycler.setAdapter(new ImageAdapter());
 
         return view;
     }

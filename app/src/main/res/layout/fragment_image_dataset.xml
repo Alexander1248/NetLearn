@@ -5,9 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".fragments.wb.datatype.ImageDatasetFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/image_data_recycler"
-        android:layout_width="200dp"
-        android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Image"
+        android:gravity="center"
+        android:textSize="100sp"/>
 
 </FrameLayout>

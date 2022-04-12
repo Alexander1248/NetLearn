@@ -36,8 +36,6 @@ public class DigitDatasetFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_digit_dataset, container, false);
-        recycler = view.findViewById(R.id.digit_data_recycler);
-        recycler.setAdapter(new DigitAdapter(getArguments().getInt("size")));
 
 
         return view;

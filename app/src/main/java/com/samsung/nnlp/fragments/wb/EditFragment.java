@@ -12,8 +12,10 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.samsung.nnlp.R;
 import com.samsung.nnlp.models.adapters.LayerAdapter;
@@ -23,6 +25,7 @@ import com.samsung.nnlp.models.neuronet.NeuralNetwork;
 public class EditFragment extends Fragment {
     private NeuralNetwork network;
     private int inputSize = 1;
+    private String inputType;
 
     public EditFragment() {
     }
@@ -50,6 +53,7 @@ public class EditFragment extends Fragment {
         Button add = view.findViewById(R.id.add_button);
         Button remove = view.findViewById(R.id.remove_button);
         EditText fl = view.findViewById(R.id.first_layer);
+        Spinner inType = view.findViewById(R.id.input_type);
 
         if (getArguments() == null) network = new NeuralNetwork();
         else {
@@ -58,7 +62,12 @@ public class EditFragment extends Fragment {
                 inputSize = network.getLayers().get(0).getInput().length;
                 fl.setText(Integer.toString(inputSize));
             }
+            inputType = getArguments().getString("inputType");
+            String[] array = getResources().getStringArray(R.array.types);
+            for (int i = 0; i < array.length; i++)
+                if (array[i].equals(inputType)) inType.setSelection(i);
         }
+
 
 
 
@@ -81,6 +90,17 @@ public class EditFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable editable) {
+
+            }
+        });
+        inType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                inputType = (String) adapterView.getItemAtPosition(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
         });
@@ -109,6 +129,7 @@ public class EditFragment extends Fragment {
             for (int i = 1; i < adapter.getLayers().size(); i++)
                 network.initHiddenOrOutLayer(adapter.getLayers().get(i).function,adapter.getLayers().get(i).size);
             bundle.putSerializable("nn", network);
+            bundle.putString("inputType", inputType);
             Navigation.findNavController(view).navigate(R.id.edit_to_wb, bundle);
 
         });

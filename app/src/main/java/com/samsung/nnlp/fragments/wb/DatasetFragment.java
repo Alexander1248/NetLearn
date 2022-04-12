@@ -53,10 +53,8 @@ public class DatasetFragment extends Fragment {
                 case "ImageRGB": output = ImageDatasetFragment.newInstance(true); break;
             }
             ((FrameLayout) view.findViewById(R.id.input_dataset)).addView(input.onCreateView(inflater, view.findViewById(R.id.input_dataset), savedInstanceState));
-            input.getArguments().putInt("size", network.getLayers().get(0).getInput().length);
 
             ((FrameLayout) view.findViewById(R.id.output_dataset)).addView(output.onCreateView(inflater, view.findViewById(R.id.input_dataset), savedInstanceState));
-            output.getArguments().putInt("size", network.getLayers().get(network.getLayers().size() - 1).getNeurons().length);
         }
 
         return view;

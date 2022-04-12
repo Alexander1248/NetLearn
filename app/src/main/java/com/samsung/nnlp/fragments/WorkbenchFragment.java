@@ -19,6 +19,7 @@ import com.samsung.nnlp.models.neuronet.NeuralNetwork;
 
 public class WorkbenchFragment extends Fragment {
     private NeuralNetwork network;
+    private String inputType;
 
     public WorkbenchFragment() {}
 
@@ -41,8 +42,12 @@ public class WorkbenchFragment extends Fragment {
         if (getArguments() == null) {
             network = new NeuralNetwork();
             network.initInLayer(AFunction.Sigmoid, 1, 2);
+            inputType = getResources().getStringArray(R.array.types)[0];
         }
-        else network = (NeuralNetwork) getArguments().getSerializable("nn");
+        else {
+            network = (NeuralNetwork) getArguments().getSerializable("nn");
+            inputType = getArguments().getString("inputType");
+        }
 
 
         Button edit = view.findViewById(R.id.edit);
@@ -58,6 +63,7 @@ public class WorkbenchFragment extends Fragment {
 
         Bundle bundle = new Bundle();
         bundle.putSerializable("nn", network);
+        bundle.putSerializable("inputType", inputType);
         edit.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.to_edit, bundle));
         train.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.to_train, bundle));
         use.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.to_use, bundle));
