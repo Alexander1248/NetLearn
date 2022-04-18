@@ -113,5 +113,8 @@
         <argument
             android:name="outputType"
             app:argType="string" />
+        <action
+            android:id="@+id/train_to_wb"
+            app:destination="@id/workbenchFragment" />
     </fragment>
 </navigation>

@@ -1,4 +1,4 @@
-package com.samsung.nnlp.models.netview;
+package com.samsung.nnlp.models;
 
 import android.content.Context;
 import android.view.SurfaceHolder;
@@ -6,6 +6,7 @@ import android.view.SurfaceView;
 
 import androidx.annotation.NonNull;
 
+import com.samsung.nnlp.models.threads.DrawThread;
 import com.samsung.nnlp.models.neuronet.NeuralNetwork;
 
 public class NetView extends SurfaceView implements SurfaceHolder.Callback {

@@ -12,14 +12,18 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.samsung.nnlp.R;
-import com.samsung.nnlp.models.netview.NetView;
+import com.samsung.nnlp.models.NetView;
 import com.samsung.nnlp.models.neuronet.AFunction;
 import com.samsung.nnlp.models.neuronet.NeuralNetwork;
+import com.samsung.nnlp.models.threads.TrainThread;
+
+import java.io.Serializable;
 
 
 public class WorkbenchFragment extends Fragment {
     private NeuralNetwork network;
     private String inputType;
+    private TrainThread thread;
 
     public WorkbenchFragment() {}
 
@@ -47,6 +51,11 @@ public class WorkbenchFragment extends Fragment {
         else {
             network = (NeuralNetwork) getArguments().getSerializable("nn");
             inputType = getArguments().getString("inputType");
+            thread = (TrainThread) getArguments().getSerializable("thread");
+            if (thread != null) {
+                thread.setProgressBar(view.findViewById(R.id.learning_progress), view.findViewById(R.id.error_rate));
+                thread.start();
+            }
         }
 
 

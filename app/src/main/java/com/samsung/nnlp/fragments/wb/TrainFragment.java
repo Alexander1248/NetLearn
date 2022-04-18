@@ -104,7 +104,7 @@ public class TrainFragment extends Fragment {
         });
 
         bundle.putSerializable("nn", network);
-        ((Button) view.findViewById(R.id.set_dataset)).setOnClickListener(Navigation.createNavigateOnClickListener(R.id.train_to_dataset, bundle));
+        view.findViewById(R.id.set_dataset).setOnClickListener(Navigation.createNavigateOnClickListener(R.id.train_to_dataset, bundle));
         return view;
     }
 }

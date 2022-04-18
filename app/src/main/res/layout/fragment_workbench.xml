@@ -58,7 +58,7 @@
             android:textSize="@dimen/btnTextSize" />
 
         <TextView
-            android:id="@+id/learning_rate"
+            android:id="@+id/error_rate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Error rate: 100%"

@@ -1,4 +1,4 @@
-package com.samsung.nnlp.models.netview;
+package com.samsung.nnlp.models.threads;
 
 import android.content.Context;
 import android.graphics.Canvas;

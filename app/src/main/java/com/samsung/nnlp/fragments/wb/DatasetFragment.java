@@ -1,23 +1,30 @@
 package com.samsung.nnlp.fragments.wb;
 
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 
 import com.samsung.nnlp.R;
 import com.samsung.nnlp.fragments.wb.datatype.DigitDatasetFragment;
 import com.samsung.nnlp.fragments.wb.datatype.ImageDatasetFragment;
 import com.samsung.nnlp.models.neuronet.NeuralNetwork;
+import com.samsung.nnlp.models.threads.TrainThread;
 
+import java.util.List;
 import java.util.zip.Inflater;
 
 public class DatasetFragment extends Fragment {
     private NeuralNetwork network;
+    private List<double[]> in;
+    private List<double[]> out;
 
     private Fragment input;
     private Fragment output;
@@ -56,6 +63,12 @@ public class DatasetFragment extends Fragment {
 
             ((FrameLayout) view.findViewById(R.id.output_dataset)).addView(output.onCreateView(inflater, view.findViewById(R.id.input_dataset), savedInstanceState));
         }
+        Button button = view.findViewById(R.id.start_train);
+        button.setOnClickListener(view1 -> {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("thread", new TrainThread(network, in, out));
+            Navigation.findNavController(view).navigate(R.id.train_to_wb, bundle);
+        });
 
         return view;
     }

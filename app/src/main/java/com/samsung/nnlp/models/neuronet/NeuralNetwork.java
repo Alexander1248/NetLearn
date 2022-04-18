@@ -27,7 +27,10 @@ public class NeuralNetwork implements Serializable {
     }
 
     public void setInput(int i,double value) {
-        layers.get(0).setInput(i,value);
+        layers.get(0).setInput(i, value);
+    }
+    public void setInput(double[] value) {
+        layers.get(0).setInput(value);
     }
     public double getOutput(int i) {
         return layers.get(layers.size() - 1).getOutput(i);
@@ -40,9 +43,11 @@ public class NeuralNetwork implements Serializable {
         for (int i = 0; i < layers.size(); i++) layers.get(i).calculateLayer();
     }
 
-    public void calculateError(double[] rightResults) {
-        layers.get(layers.size() - 1).calculateOutLayerError(rightResults);
+    public double calculateError(double[] rightResults) {
+        double err = 0;
+        err += layers.get(layers.size() - 1).calculateOutLayerError(rightResults);
         for (int i = layers.size() - 2; i >= 0; i--) layers.get(i).calculateInOrHiddenLayerError(layers.get(i + 1));
+        return err;
     }
     public void calculateNewWeights() {
         for (int i = 1; i < layers.size(); i++) layers.get(i).calculateNewWeights(learningRate, momentum);

@@ -24,6 +24,9 @@ public class Layer implements Serializable {
     public void setInput(int i, double input) {
         if (firstLayer && i >= 0 && i < this.input.length) this.input[i] = input;
     }
+    public void setInput(double[] input) {
+        this.input = input;
+    }
 
     public double getOutput(int i) {
         if (i >= 0 && i < this.neurons.length) return neurons[i].getOutput();
@@ -58,8 +61,13 @@ public class Layer implements Serializable {
         }
     }
 
-    public void calculateOutLayerError(double[] rightResults) {
-        for (int i = 0; i < neurons.length; i++) neurons[i].setError((rightResults[i] - neurons[i].getOutput()) * ActivationFunction.GetDerivative(neurons[i].getFunction(),neurons[i].getWeightedSum()));
+    public double calculateOutLayerError(double[] rightResults) {
+        double err = 0;
+        for (int i = 0; i < neurons.length; i++) {
+            err += rightResults[i] - neurons[i].getOutput();
+            neurons[i].setError((rightResults[i] - neurons[i].getOutput()) * ActivationFunction.GetDerivative(neurons[i].getFunction(), neurons[i].getWeightedSum()));
+        }
+        return err;
     }
     public void calculateInOrHiddenLayerError(Layer postLayer) {
         for (int i = 0; i < neurons.length; i++) {
