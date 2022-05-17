@@ -52,10 +52,9 @@ public class WorkbenchFragment extends Fragment {
             network = (NeuralNetwork) getArguments().getSerializable("nn");
             inputType = getArguments().getString("inputType");
             thread = (TrainThread) getArguments().getSerializable("thread");
-            if (thread != null) {
+            if (thread != null)
                 thread.setProgressBar(view.findViewById(R.id.learning_progress), view.findViewById(R.id.error_rate));
-                thread.start();
-            }
+
         }
 
 
@@ -68,7 +67,12 @@ public class WorkbenchFragment extends Fragment {
         NetView nw = new NetView(getContext());
         nw.setNeuralNetwork(network);
         netView.addView(nw);
-
+        if (thread != null) {
+            Button stop = view.findViewById(R.id.stop_train);
+            stop.setVisibility(View.VISIBLE);
+            stop.setOnClickListener(view1 -> thread.stopTraining());
+            thread.start();
+        }
 
         Bundle bundle = new Bundle();
         bundle.putSerializable("nn", network);
@@ -80,7 +84,6 @@ public class WorkbenchFragment extends Fragment {
         save.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.to_io, bundle));
         bundle.putBoolean("state", true);
         load.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.to_io, bundle));
-
         return view;
     }
 }

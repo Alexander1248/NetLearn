@@ -23,7 +23,7 @@ public class TrainThread extends Thread implements Serializable {
         this.out = out;
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"SetTextI18n", "DefaultLocale"})
     @Override
     public void run() {
         double error;
@@ -37,9 +37,14 @@ public class TrainThread extends Thread implements Serializable {
                 network.calculateNewWeights();
             }
 
-            progressBar.setProgress((int) (error * 10));
-            progressText.setText("Error rate: " + error);
+            progressBar.setProgress((int) (error));
+            progressText.setText("Error rate: " + String.format("%.2f",error));
 
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -50,6 +55,7 @@ public class TrainThread extends Thread implements Serializable {
     public void setProgressBar(ProgressBar progressBar, TextView progressText) {
 
         this.progressBar = progressBar;
+        progressBar.setMax(100);
         this.progressText = progressText;
     }
 }

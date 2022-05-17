@@ -23,11 +23,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Output data"
+                android:text="Input data"
                 android:textSize="25sp" />
 
             <FrameLayout
-                android:id="@+id/output_dataset"
+                android:id="@+id/input_dataset"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -44,16 +44,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Input data"
+                android:text="Output data"
                 android:textSize="25sp" />
 
             <FrameLayout
-                android:id="@+id/input_dataset"
+                android:id="@+id/output_dataset"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
             </FrameLayout>
         </LinearLayout>
+
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

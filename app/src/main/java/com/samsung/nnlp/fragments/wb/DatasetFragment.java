@@ -18,6 +18,7 @@ import com.samsung.nnlp.fragments.wb.datatype.ImageDatasetFragment;
 import com.samsung.nnlp.models.neuronet.NeuralNetwork;
 import com.samsung.nnlp.models.threads.TrainThread;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.Inflater;
 
@@ -59,13 +60,40 @@ public class DatasetFragment extends Fragment {
                 case "Image": output = ImageDatasetFragment.newInstance(false); break;
                 case "ImageRGB": output = ImageDatasetFragment.newInstance(true); break;
             }
+
+            Bundle bundle = new Bundle();
+            bundle.putInt("size", network.getLayers().get(0).getInput().length);
+            input.setArguments(bundle);
             ((FrameLayout) view.findViewById(R.id.input_dataset)).addView(input.onCreateView(inflater, view.findViewById(R.id.input_dataset), savedInstanceState));
 
+            bundle = new Bundle();
+            bundle.putInt("size", network.getLayers().get(network.getLayers().size() - 1).getNeurons().length);
+            output.setArguments(bundle);
             ((FrameLayout) view.findViewById(R.id.output_dataset)).addView(output.onCreateView(inflater, view.findViewById(R.id.input_dataset), savedInstanceState));
+
         }
         Button button = view.findViewById(R.id.start_train);
         button.setOnClickListener(view1 -> {
             Bundle bundle = new Bundle();
+
+            in = new ArrayList<>();
+            ArrayList<String> unparsed = input.getArguments().getStringArrayList("data");
+            for (String s : unparsed) {
+                String[] split = s.split(" ");
+                double[] data = new double[network.getLayers().get(0).getInput().length];
+                for (int i = 0; i < data.length; i++) data[i] = Double.parseDouble(split[i]);
+                in.add(data);
+            }
+
+            out = new ArrayList<>();
+            unparsed = output.getArguments().getStringArrayList("data");
+            for (String s : unparsed) {
+                String[] split = s.split(" ");
+                double[]   data = new double[network.getLayers().get(network.getLayers().size() - 1).getNeurons().length];
+                for (int i = 0; i < data.length; i++) data[i] = Double.parseDouble(split[i]);
+                out.add(data);
+            }
+
             bundle.putSerializable("thread", new TrainThread(network, in, out));
             Navigation.findNavController(view).navigate(R.id.train_to_wb, bundle);
         });

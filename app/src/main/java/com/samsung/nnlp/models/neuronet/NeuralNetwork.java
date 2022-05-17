@@ -45,7 +45,7 @@ public class NeuralNetwork implements Serializable {
 
     public double calculateError(double[] rightResults) {
         double err = 0;
-        err += layers.get(layers.size() - 1).calculateOutLayerError(rightResults);
+        err += Math.abs(layers.get(layers.size() - 1).calculateOutLayerError(rightResults));
         for (int i = layers.size() - 2; i >= 0; i--) layers.get(i).calculateInOrHiddenLayerError(layers.get(i + 1));
         return err;
     }

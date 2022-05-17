@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class FileManager extends Activity {
     private static final int ACTIVITY_CHOOSE_FILE = 1;
@@ -27,11 +28,10 @@ public class FileManager extends Activity {
             if (resultCode == RESULT_OK) {
                 Uri uri = data.getData();
                  filepath = uri.getPath();
+                 getIntent().putExtra("path", filepath);
+                 onBackPressed();
             }
         }
     }
 
-    public String getFilepath() {
-        return filepath;
-    }
 }
