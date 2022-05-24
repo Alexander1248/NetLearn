@@ -1,6 +1,5 @@
 package com.samsung.nnlp.models.adapters;
 
-import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,35 +12,34 @@ import com.samsung.nnlp.R;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
 
-public class StringAdapter extends RecyclerView.Adapter<StringAdapter.StringHolder> {
-    public final ArrayList<String> strings = new ArrayList<>();
+public class FileAdapter extends RecyclerView.Adapter<FileAdapter.FileHolder> {
+    public final ArrayList<File> files = new ArrayList<>();
 
-    public StringAdapter() {
+    public FileAdapter() {
     }
 
     @NonNull
     @Override
-    public StringHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public FileHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.string_item, parent, false);
-        return new StringHolder(view);
+        return new FileHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull StringHolder holder, int position) {
-        holder.filepath.setText(strings.get(position));
+    public void onBindViewHolder(@NonNull FileHolder holder, int position) {
+        holder.filepath.setText(files.get(position).getName());
     }
 
     @Override
     public int getItemCount() {
-        return strings.size();
+        return files.size();
     }
 
-    public static class StringHolder extends RecyclerView.ViewHolder {
+    public static class FileHolder extends RecyclerView.ViewHolder {
         public final TextView filepath;
 
-        public StringHolder(@NonNull View itemView) {
+        public FileHolder(@NonNull View itemView) {
             super(itemView);
 
             filepath = itemView.findViewById(R.id.string_view);

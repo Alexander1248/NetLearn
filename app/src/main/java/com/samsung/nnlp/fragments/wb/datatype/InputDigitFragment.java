@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -18,14 +17,14 @@ import com.samsung.nnlp.R;
 import com.samsung.nnlp.models.adapters.StringAdapter;
 
 
-public class DigitDatasetFragment extends Fragment {
+public class InputDigitFragment extends Fragment {
     RecyclerView recycler;
-   public DigitDatasetFragment() {
+   public InputDigitFragment() {
    }
 
 
-    public static DigitDatasetFragment newInstance() {
-        return new DigitDatasetFragment();
+    public static InputDigitFragment newInstance() {
+        return new InputDigitFragment();
     }
 
     @Override
@@ -38,7 +37,7 @@ public class DigitDatasetFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_digit_dataset, container, false);
+        View view = inflater.inflate(R.layout.fragment_digit_input, container, false);
         recycler = view.findViewById(R.id.string_recycler);
         StringAdapter stringAdapter = new StringAdapter();
 
@@ -62,10 +61,16 @@ public class DigitDatasetFragment extends Fragment {
         Button button = view.findViewById(R.id.add_button);
         button.setOnClickListener(view1 -> {
             StringBuilder str = new StringBuilder();
-            for (EditText text : texts) str.append(text.getText().toString()).append(" ");
-            stringAdapter.strings.add(str.toString());
-            stringAdapter.notifyDataSetChanged();
-            getArguments().putStringArrayList("data", stringAdapter.strings);
+            boolean notNull = true;
+            for (EditText text : texts) {
+                if (text.getText().toString().equals("")) notNull = false;
+                str.append(text.getText().toString()).append(" ");
+            }
+            if (notNull) {
+                stringAdapter.strings.add(str.toString());
+                stringAdapter.notifyDataSetChanged();
+                getArguments().putStringArrayList("data", stringAdapter.strings);
+            }
         });
         return view;
     }

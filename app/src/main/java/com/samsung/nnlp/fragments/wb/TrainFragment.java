@@ -49,6 +49,7 @@ public class TrainFragment extends Fragment {
         else {
             network = (NeuralNetwork) getArguments().getSerializable("nn");
             inType = getArguments().getString("inputType");
+            outType = getArguments().getString("outputType");
         }
 
         View view = inflater.inflate(R.layout.fragment_train, container, false);
@@ -89,20 +90,8 @@ public class TrainFragment extends Fragment {
         });
 
         Bundle bundle = new Bundle();
-        ((Spinner) view.findViewById(R.id.output_type)).setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                outType = (String) adapterView.getItemAtPosition(i);
-                bundle.putString("inputType", inType);
-                bundle.putString("outputType", outType);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
+        bundle.putString("inputType", inType);
+        bundle.putString("outputType", outType);
         bundle.putSerializable("nn", network);
         view.findViewById(R.id.set_dataset).setOnClickListener(Navigation.createNavigateOnClickListener(R.id.train_to_dataset, bundle));
         return view;

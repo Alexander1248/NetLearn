@@ -26,6 +26,7 @@ public class TrainThread extends Thread implements Serializable {
     @SuppressLint({"SetTextI18n", "DefaultLocale"})
     @Override
     public void run() {
+        long t = System.currentTimeMillis();
         double error;
         while (isTrain) {
             error = 0;
@@ -36,9 +37,16 @@ public class TrainThread extends Thread implements Serializable {
                 error += network.calculateError(out.get(j));
                 network.calculateNewWeights();
             }
-
-            progressBar.setProgress((int) (error));
-            progressText.setText("Error rate: " + String.format("%.2f",error));
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            if (System.currentTimeMillis() - t >= 50) {
+                progressBar.setProgress((int) (error));
+                progressText.setText("Error rate: " + String.format("%.2f", error));
+                t = System.currentTimeMillis();
+            }
 
             try {
                 Thread.sleep(10);

@@ -23,6 +23,7 @@ import java.io.Serializable;
 public class WorkbenchFragment extends Fragment {
     private NeuralNetwork network;
     private String inputType;
+    private String outputType;
     private TrainThread thread;
 
     public WorkbenchFragment() {}
@@ -47,10 +48,12 @@ public class WorkbenchFragment extends Fragment {
             network = new NeuralNetwork();
             network.initInLayer(AFunction.Sigmoid, 1, 2);
             inputType = getResources().getStringArray(R.array.types)[0];
+            outputType = getResources().getStringArray(R.array.types)[1];
         }
         else {
             network = (NeuralNetwork) getArguments().getSerializable("nn");
             inputType = getArguments().getString("inputType");
+            outputType = getArguments().getString("outputType");
             thread = (TrainThread) getArguments().getSerializable("thread");
             if (thread != null)
                 thread.setProgressBar(view.findViewById(R.id.learning_progress), view.findViewById(R.id.error_rate));
@@ -77,6 +80,7 @@ public class WorkbenchFragment extends Fragment {
         Bundle bundle = new Bundle();
         bundle.putSerializable("nn", network);
         bundle.putSerializable("inputType", inputType);
+        bundle.putSerializable("outputType", outputType);
         edit.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.to_edit, bundle));
         train.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.to_train, bundle));
         use.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.to_use, bundle));

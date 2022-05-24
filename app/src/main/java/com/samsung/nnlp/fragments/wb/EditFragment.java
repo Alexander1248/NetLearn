@@ -26,6 +26,7 @@ public class EditFragment extends Fragment {
     private NeuralNetwork network;
     private int inputSize = 1;
     private String inputType;
+    private String outputType;
 
     public EditFragment() {
     }
@@ -54,6 +55,7 @@ public class EditFragment extends Fragment {
         Button remove = view.findViewById(R.id.remove_button);
         EditText fl = view.findViewById(R.id.first_layer);
         Spinner inType = view.findViewById(R.id.input_type);
+        Spinner outType = view.findViewById(R.id.output_type);
 
         if (getArguments() == null) network = new NeuralNetwork();
         else {
@@ -63,9 +65,12 @@ public class EditFragment extends Fragment {
                 fl.setText(Integer.toString(inputSize));
             }
             inputType = getArguments().getString("inputType");
+            outputType = getArguments().getString("outputType");
             String[] array = getResources().getStringArray(R.array.types);
-            for (int i = 0; i < array.length; i++)
+            for (int i = 0; i < array.length; i++) {
                 if (array[i].equals(inputType)) inType.setSelection(i);
+                if (array[i].equals(outputType)) outType.setSelection(i);
+            }
         }
 
 
@@ -104,6 +109,17 @@ public class EditFragment extends Fragment {
 
             }
         });
+        outType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                outputType = (String) adapterView.getItemAtPosition(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         add.setOnClickListener(view1 -> {
             LayerAdapter adapter = (LayerAdapter) layers.getAdapter();
@@ -130,6 +146,7 @@ public class EditFragment extends Fragment {
                 network.initHiddenOrOutLayer(adapter.getLayers().get(i).function,adapter.getLayers().get(i).size);
             bundle.putSerializable("nn", network);
             bundle.putString("inputType", inputType);
+            bundle.putString("outputType", outputType);
             Navigation.findNavController(view).navigate(R.id.edit_to_wb, bundle);
 
         });
