@@ -13,15 +13,14 @@ import android.widget.LinearLayout;
 
 import com.samsung.nnlp.R;
 import com.samsung.nnlp.models.NetView;
-import com.samsung.nnlp.models.neuronet.AFunction;
-import com.samsung.nnlp.models.neuronet.NeuralNetwork;
 import com.samsung.nnlp.models.threads.TrainThread;
 
-import java.io.Serializable;
+import org.neuroph.core.NeuralNetwork;
+import org.neuroph.nnet.MultiLayerPerceptron;
 
 
 public class WorkbenchFragment extends Fragment {
-    private NeuralNetwork network;
+    private MultiLayerPerceptron network;
     private String inputType;
     private String outputType;
     private TrainThread thread;
@@ -45,13 +44,12 @@ public class WorkbenchFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_workbench, container, false);
 
         if (getArguments() == null) {
-            network = new NeuralNetwork();
-            network.initInLayer(AFunction.Sigmoid, 1, 2);
+            network = new MultiLayerPerceptron(2, 3, 1);
             inputType = getResources().getStringArray(R.array.types)[0];
-            outputType = getResources().getStringArray(R.array.types)[1];
+            outputType = getResources().getStringArray(R.array.types)[0];
         }
         else {
-            network = (NeuralNetwork) getArguments().getSerializable("nn");
+            network = (MultiLayerPerceptron) getArguments().getSerializable("nn");
             inputType = getArguments().getString("inputType");
             outputType = getArguments().getString("outputType");
             thread = (TrainThread) getArguments().getSerializable("thread");

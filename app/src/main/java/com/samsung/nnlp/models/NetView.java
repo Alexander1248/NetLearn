@@ -7,11 +7,12 @@ import android.view.SurfaceView;
 import androidx.annotation.NonNull;
 
 import com.samsung.nnlp.models.threads.DrawThread;
-import com.samsung.nnlp.models.neuronet.NeuralNetwork;
+
+import org.neuroph.nnet.MultiLayerPerceptron;
 
 public class NetView extends SurfaceView implements SurfaceHolder.Callback {
 
-    private NeuralNetwork net;
+    private MultiLayerPerceptron net;
     private DrawThread thread;
 
     public NetView(Context context) {
@@ -41,7 +42,7 @@ public class NetView extends SurfaceView implements SurfaceHolder.Callback {
         }
     }
 
-    public void setNeuralNetwork(NeuralNetwork net) {
+    public void setNeuralNetwork(MultiLayerPerceptron net) {
         this.net = net;
     }
 }

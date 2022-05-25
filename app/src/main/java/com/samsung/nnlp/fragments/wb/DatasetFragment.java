@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.samsung.nnlp.R;
 import com.samsung.nnlp.fragments.wb.datatype.InputDigitFragment;
@@ -50,12 +51,12 @@ public class DatasetFragment extends Fragment {
         if (getArguments() != null) {
             network = (NeuralNetwork) getArguments().getSerializable("nn");
             switch (getArguments().getString("inputType")) {
-                case "Digits": input = InputDigitFragment.newInstance(); break;
+                case "Digits": input = new InputDigitFragment(); break;
                 case "Image": input = new InputImageFragment(getContext(),false); break;
                 case "ImageRGB": input = new InputImageFragment(getContext(),true); break;
             }
             switch (getArguments().getString("outputType")) {
-                case "Digits": output = InputDigitFragment.newInstance(); break;
+                case "Digits": output = new InputDigitFragment(); break;
                 case "Image": output = new InputImageFragment(getContext(),false); break;
                 case "ImageRGB": output = new InputImageFragment(getContext(),true); break;
             }
@@ -74,30 +75,49 @@ public class DatasetFragment extends Fragment {
         Button button = view.findViewById(R.id.start_train);
         button.setOnClickListener(view1 -> {
             Bundle bundle = new Bundle();
-
-            in = new ArrayList<>();
-            ArrayList<String> unparsed = input.getArguments().getStringArrayList("data");
-            for (String s : unparsed) {
-                String[] split = s.split(" ");
-                double[] data = new double[network.getLayers().get(0).getInput().length];
-                for (int i = 0; i < data.length; i++) data[i] = Double.parseDouble(split[i]);
-                in.add(data);
-            }
-
-            out = new ArrayList<>();
-            unparsed = output.getArguments().getStringArrayList("data");
-            for (String s : unparsed) {
-                String[] split = s.split(" ");
-                double[] data = new double[network.getLayers().get(network.getLayers().size() - 1).getNeurons().length];
-                for (int i = 0; i < data.length; i++) data[i] = Double.parseDouble(split[i]);
-                out.add(data);
-            }
-
-            bundle.putSerializable("thread", new TrainThread(network, in, out));
             bundle.putSerializable("nn", network);
             bundle.putString("inputType", getArguments().getString("inputType"));
+            bundle.putString("outputType", getArguments().getString("outputType"));
+            boolean state = true;
 
-            Navigation.findNavController(view).navigate(R.id.train_to_wb, bundle);
+            ArrayList<String> unparsedIn = input.getArguments().getStringArrayList("data");
+            ArrayList<String> unparsedOut = output.getArguments().getStringArrayList("data");
+
+            if (unparsedIn != null && unparsedOut != null && unparsedIn.size() > 0 && unparsedIn.size() == unparsedOut.size()) {
+                in = new ArrayList<>();
+                for (String s : unparsedIn) {
+                    String[] split = s.split(" ");
+                    double[] data = new double[network.getLayers().get(0).getInput().length];
+
+                    if (split.length != data.length) {
+                        Toast.makeText(getContext(), "Input size no match", Toast.LENGTH_SHORT).show();
+                        state = false;
+                        break;
+                    }
+
+                    for (int i = 0; i < data.length; i++) data[i] = Double.parseDouble(split[i]);
+                    in.add(data);
+                }
+
+                out = new ArrayList<>();
+                for (String s : unparsedOut) {
+                    String[] split = s.split(" ");
+                    double[] data = new double[network.getLayers().get(network.getLayers().size() - 1).getNeurons().length];
+                    if (split.length != data.length) {
+                        Toast.makeText(getContext(), "Output size no match", Toast.LENGTH_SHORT).show();
+                        state = false;
+                        break;
+                    }
+
+                    for (int i = 0; i < data.length; i++)
+                        data[i] = Double.parseDouble(split[i]);
+                    out.add(data);
+                }
+
+                if (state) bundle.putSerializable("thread", new TrainThread(network, in, out));
+                Navigation.findNavController(view).navigate(R.id.train_to_wb, bundle);
+
+            }
         });
 
         return view;

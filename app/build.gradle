@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.samsung.nnlp"
-        minSdk 21
+        minSdk 29
         targetSdk 31
         versionCode 1
         versionName "1.0"
@@ -36,6 +36,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.9.0'
+    implementation group: 'org.beykery', name: 'neuroph', version: '2.92'
 
     implementation "android.arch.navigation:navigation-fragment:$nav_version"
     implementation "android.arch.navigation:navigation-ui:$nav_version"

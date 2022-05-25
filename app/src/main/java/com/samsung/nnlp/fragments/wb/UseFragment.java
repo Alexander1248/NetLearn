@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,7 +59,8 @@ public class UseFragment extends Fragment {
                     inputs = new EditText[network.getLayers().get(0).getInput().length];
                     for (int i = 0; i < inputs.length; i++) {
                         inputs[i] = new EditText(getActivity());
-                        inputs[i].setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f));
+                        inputs[i].setGravity(Gravity.CENTER);
+                        inputs[i].setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0, 1.0f));
                         layout.addView(inputs[i]);
                     }
                     break;
@@ -75,8 +77,9 @@ public class UseFragment extends Fragment {
                 case "Digits": {
                     outputs = new TextView[network.getLayers().get(network.getLayers().size() - 1).getNeurons().length];
                     for (int i = 0; i < outputs.length; i++) {
-                        outputs[i] = new EditText(getActivity());
-                        outputs[i].setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f));
+                        outputs[i] = new TextView(getActivity());
+                        outputs[i].setGravity(Gravity.CENTER);
+                        outputs[i].setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0, 1.0f));
                         layout.addView(outputs[i]);
                     }
                     break;
@@ -95,6 +98,7 @@ public class UseFragment extends Fragment {
             for (int i = 0; i < inputs.length; i++) in[i] = Double.parseDouble(inputs[i].getText().toString());
 
             network.setInput(in);
+            network.calculateNet();
 
             int ol = network.getLayers().get(network.getLayers().size() - 1).getNeurons().length;
             for (int i = 0; i < ol; i++) outputs[i].setText(Double.toString(network.getOutput(i)));

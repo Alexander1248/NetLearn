@@ -19,11 +19,12 @@ import android.widget.Spinner;
 
 import com.samsung.nnlp.R;
 import com.samsung.nnlp.models.adapters.LayerAdapter;
-import com.samsung.nnlp.models.neuronet.NeuralNetwork;
+
+import org.neuroph.nnet.MultiLayerPerceptron;
 
 
 public class EditFragment extends Fragment {
-    private NeuralNetwork network;
+    private MultiLayerPerceptron network;
     private int inputSize = 1;
     private String inputType;
     private String outputType;
@@ -57,11 +58,11 @@ public class EditFragment extends Fragment {
         Spinner inType = view.findViewById(R.id.input_type);
         Spinner outType = view.findViewById(R.id.output_type);
 
-        if (getArguments() == null) network = new NeuralNetwork();
+        if (getArguments() == null) network = new MultiLayerPerceptron();
         else {
-            network = (NeuralNetwork) getArguments().getSerializable("nn");
-            if (network.getLayers().size() > 0) {
-                inputSize = network.getLayers().get(0).getInput().length;
+            network = (MultiLayerPerceptron) getArguments().getSerializable("nn");
+            if (network.getLayers().length > 0) {
+                inputSize = network.getLayerAt(0).getNeurons().length;
                 fl.setText(Integer.toString(inputSize));
             }
             inputType = getArguments().getString("inputType");

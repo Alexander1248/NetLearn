@@ -22,18 +22,12 @@ public class InputDigitFragment extends Fragment {
    public InputDigitFragment() {
    }
 
-
-    public static InputDigitFragment newInstance() {
-        return new InputDigitFragment();
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

@@ -10,15 +10,17 @@
         <entry key="..\:/Projects/AndroidProjects/NNLP/app/src/main/res/layout/activity_train.xml" value="0.10989583333333333" />
         <entry key="..\:/Projects/AndroidProjects/NNLP/app/src/main/res/layout/activity_workbench.xml" value="0.159375" />
         <entry key="..\:/Projects/AndroidProjects/NNLP/app/src/main/res/layout/digit_item.xml" value="0.32456140350877194" />
-        <entry key="..\:/Projects/AndroidProjects/NNLP/app/src/main/res/layout/fragment_dataset.xml" value="0.3904494382022472" />
+        <entry key="..\:/Projects/AndroidProjects/NNLP/app/src/main/res/layout/fragment_dataset.xml" value="0.32489451476793246" />
         <entry key="..\:/Projects/AndroidProjects/NNLP/app/src/main/res/layout/fragment_digit_dataset.xml" value="0.36585365853658536" />
+        <entry key="..\:/Projects/AndroidProjects/NNLP/app/src/main/res/layout/fragment_digit_input.xml" value="0.1" />
         <entry key="..\:/Projects/AndroidProjects/NNLP/app/src/main/res/layout/fragment_digit_output.xml" value="0.17418546365914786" />
         <entry key="..\:/Projects/AndroidProjects/NNLP/app/src/main/res/layout/fragment_edit.xml" value="0.4" />
         <entry key="..\:/Projects/AndroidProjects/NNLP/app/src/main/res/layout/fragment_image_dataset.xml" value="0.536" />
+        <entry key="..\:/Projects/AndroidProjects/NNLP/app/src/main/res/layout/fragment_image_input.xml" value="0.2894736842105263" />
         <entry key="..\:/Projects/AndroidProjects/NNLP/app/src/main/res/layout/fragment_image_output.xml" value="0.17418546365914786" />
         <entry key="..\:/Projects/AndroidProjects/NNLP/app/src/main/res/layout/fragment_io.xml" value="0.12526720820863618" />
         <entry key="..\:/Projects/AndroidProjects/NNLP/app/src/main/res/layout/fragment_library.xml" value="0.11041666666666666" />
-        <entry key="..\:/Projects/AndroidProjects/NNLP/app/src/main/res/layout/fragment_menu.xml" value="0.16799999999999998" />
+        <entry key="..\:/Projects/AndroidProjects/NNLP/app/src/main/res/layout/fragment_menu.xml" value="0.4" />
         <entry key="..\:/Projects/AndroidProjects/NNLP/app/src/main/res/layout/fragment_output_image.xml" value="0.17418546365914786" />
         <entry key="..\:/Projects/AndroidProjects/NNLP/app/src/main/res/layout/fragment_settings.xml" value="0.11041666666666666" />
         <entry key="..\:/Projects/AndroidProjects/NNLP/app/src/main/res/layout/fragment_train.xml" value="0.536" />

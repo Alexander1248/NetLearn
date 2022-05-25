@@ -30,28 +30,17 @@ public class TrainThread extends Thread implements Serializable {
         double error;
         while (isTrain) {
             error = 0;
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < in.size(); i++) {
                 int j = (int) (Math.random() * in.size());
                 network.setInput(in.get(j));
                 network.calculateNet();
                 error += network.calculateError(out.get(j));
                 network.calculateNewWeights();
             }
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            if (System.currentTimeMillis() - t >= 50) {
+            if (System.currentTimeMillis() - t >= 100) {
                 progressBar.setProgress((int) (error));
                 progressText.setText("Error rate: " + String.format("%.2f", error));
                 t = System.currentTimeMillis();
-            }
-
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
         }
     }

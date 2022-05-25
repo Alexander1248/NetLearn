@@ -11,7 +11,7 @@
     <LinearLayout
         android:id="@+id/data_field"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="18dp"
         android:layout_weight="1">
 
         <EditText
@@ -26,7 +26,7 @@
             android:id="@+id/add_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text="Add"
             android:textSize="@dimen/btnTextSize"
             tools:layout_editor_absoluteX="74dp"

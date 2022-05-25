@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.samsung.nnlp.R;
+import com.samsung.nnlp.fragments.wb.datatype.InputImageFragment;
 import com.samsung.nnlp.services.FileUtil;
 
 import java.io.File;
@@ -54,7 +55,7 @@ public class FileActivity extends Activity {
                         File file = FileUtil.from(this, fileUri);
 
                         Log.i("file", "File name: " + file.getName());
-                        getIntent().putExtra("path", file);
+                        InputImageFragment.bundleFile = file;
                         onBackPressed();
 
                     } catch (IOException e) {
