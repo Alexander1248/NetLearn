@@ -6,7 +6,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.samsung.nnlp"
+        applicationId "com.samsung.netlearn"
         minSdk 29
         targetSdk 31
         versionCode 1

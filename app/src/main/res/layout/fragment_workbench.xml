@@ -22,38 +22,58 @@
         android:layout_weight="3"
         android:orientation="vertical" >
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
+            android:background="@drawable/roundcorner"
+            android:layout_margin="4dp"
+
             android:text="Edit"
             android:textSize="@dimen/btnTextSize" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/train"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
+            android:background="@drawable/roundcorner"
+            android:layout_margin="4dp"
+
             android:text="Train"
             android:textSize="@dimen/btnTextSize" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/use"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
+            android:background="@drawable/roundcorner"
+            android:layout_margin="4dp"
+
             android:text="Use"
             android:textSize="@dimen/btnTextSize" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
+            android:background="@drawable/roundcorner"
+            android:layout_margin="4dp"
+
             android:text="Save"
             android:textSize="@dimen/btnTextSize" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/load"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
+            android:background="@drawable/roundcorner"
+            android:layout_margin="4dp"
+
             android:text="Load"
             android:textSize="@dimen/btnTextSize" />
 
@@ -72,10 +92,14 @@
             android:scaleX="1"
             android:scaleY="3" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/stop_train"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
+            android:background="@drawable/roundcorner"
+            android:layout_margin="4dp"
+
             android:text="Stop"
             android:visibility="gone"
             android:textSize="@dimen/btnTextSize" />

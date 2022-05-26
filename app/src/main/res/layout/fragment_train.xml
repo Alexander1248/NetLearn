@@ -8,12 +8,17 @@
     android:background="@color/gray">
 
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/set_dataset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
+        android:background="@drawable/roundcorner"
+        android:layout_margin="4dp"
+
         android:text="Learn"
         android:textSize="@dimen/btnTextSize"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.959"

@@ -5,11 +5,13 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.samsung.netlearn.models.adapters.StringAdapter;
@@ -51,7 +53,7 @@ public class InputDigitFragment extends Fragment {
             texts[i] = new EditText(layout.getContext());
             layout.addView(texts[i], i, layoutParams);
         }
-        Button button = view.findViewById(R.id.add_button);
+        ImageButton button = view.findViewById(R.id.add_button);
         button.setOnClickListener(view1 -> {
             StringBuilder str = new StringBuilder();
             boolean notNull = true;

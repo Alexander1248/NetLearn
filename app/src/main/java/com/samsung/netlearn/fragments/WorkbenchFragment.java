@@ -69,8 +69,10 @@ public class WorkbenchFragment extends Fragment {
             stop.setActivated(true);
             thread.start();
             stop.setOnClickListener(view1 -> {
-                thread.stopTraining();
-                thread = null;
+                if (thread != null) {
+                    thread.stopTraining();
+                    thread = null;
+                }
             });
         }
 

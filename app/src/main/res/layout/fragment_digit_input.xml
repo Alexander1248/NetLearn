@@ -21,16 +21,16 @@
             android:layout_weight="3"
             android:inputType="number"/>
 
-
-        <Button
-            android:id="@+id/add_button"
+        <ImageButton
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:text="Add"
-            android:textSize="@dimen/btnTextSize"
+            android:id="@+id/add_button"
+            android:src="@drawable/plus_24"
+            android:background="@drawable/roundcorner"
             tools:layout_editor_absoluteX="74dp"
             tools:layout_editor_absoluteY="56dp" />
+
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
