@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NNLP">
         <activity
-            android:name=".activities.HostActivity"
+            android:name="com.samsung.netlearn.activities.HostActivity"
             android:screenOrientation="sensorLandscape"
             android:exported="true">
             <intent-filter>
@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.FileActivity"
+            android:name="com.samsung.netlearn.activities.FileActivity"
             android:screenOrientation= "sensor"
             android:exported="true">
         </activity>

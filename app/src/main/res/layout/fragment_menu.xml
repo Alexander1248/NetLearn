@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray"
-    tools:context=".fragments.MenuFragment">
+    tools:context="com.samsung.netlearn.fragments.MenuFragment">
 
     <TextView
         android:layout_width="wrap_content"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.wb.DatasetFragment"
+    tools:context="com.samsung.netlearn.fragments.wb.DatasetFragment"
     android:background="@color/gray"
     android:orientation="vertical">
 

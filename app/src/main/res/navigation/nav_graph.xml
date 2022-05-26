@@ -6,7 +6,7 @@
     app:startDestination="@id/menuFragment">
     <fragment
         android:id="@+id/menuFragment"
-        android:name="com.samsung.nnlp.fragments.MenuFragment"
+        android:name="com.samsung.netlearn.fragments.MenuFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" >
         <action
@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/workbenchFragment"
-        android:name="com.samsung.nnlp.fragments.WorkbenchFragment"
+        android:name="com.samsung.netlearn.fragments.WorkbenchFragment"
         android:label="fragment_workbench"
         tools:layout="@layout/fragment_workbench" >
         <action
@@ -33,80 +33,109 @@
             app:destination="@id/trainFragment" />
         <argument
             android:name="nn"
-            app:argType="com.samsung.nnlp.models.neuronet.NeuralNetwork"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:argType="org.neuroph.nnet.MultiLayerPerceptron"
+            app:nullable="true" />
         <action
             android:id="@+id/to_io"
             app:destination="@id/IOFragment" />
         <action
             android:id="@+id/to_use"
             app:destination="@id/useFragment" />
+        <argument
+            android:name="inputType"
+            app:argType="string" />
+        <argument
+            android:name="outputType"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/libraryFragment"
-        android:name="com.samsung.nnlp.fragments.LibraryFragment"
+        android:name="com.samsung.netlearn.fragments.LibraryFragment"
         android:label="fragment_library"
         tools:layout="@layout/fragment_library" />
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.samsung.nnlp.fragments.SettingsFragment"
+        android:name="com.samsung.netlearn.fragments.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/editFragment"
-        android:name="com.samsung.nnlp.fragments.wb.EditFragment"
+        android:name="com.samsung.netlearn.fragments.wb.EditFragment"
         android:label="fragment_edit"
         tools:layout="@layout/fragment_edit" >
         <argument
             android:name="nn"
-            app:argType="com.samsung.nnlp.models.neuronet.NeuralNetwork"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:argType="org.neuroph.nnet.MultiLayerPerceptron"
+            app:nullable="true" />
         <action
             android:id="@+id/edit_to_wb"
             app:destination="@id/workbenchFragment" />
+        <argument
+            android:name="inputType"
+            app:argType="string" />
+        <argument
+            android:name="outputType"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/trainFragment"
-        android:name="com.samsung.nnlp.fragments.wb.TrainFragment"
+        android:name="com.samsung.netlearn.fragments.wb.TrainFragment"
         android:label="fragment_train"
         tools:layout="@layout/fragment_train" >
         <argument
             android:name="nn"
-            app:argType="com.samsung.nnlp.models.neuronet.NeuralNetwork"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:argType="org.neuroph.nnet.MultiLayerPerceptron"
+            app:nullable="true" />
         <action
             android:id="@+id/train_to_dataset"
             app:destination="@id/datasetFragment" />
+        <argument
+            android:name="inputType"
+            app:argType="string" />
+        <argument
+            android:name="outputType"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/IOFragment"
-        android:name="com.samsung.nnlp.fragments.wb.IOFragment"
+        android:name="com.samsung.netlearn.fragments.wb.IOFragment"
         android:label="fragment_io"
         tools:layout="@layout/fragment_io" >
         <argument
             android:name="nn"
-            app:argType="com.samsung.nnlp.models.neuronet.NeuralNetwork"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:argType="org.neuroph.nnet.MultiLayerPerceptron"
+            app:nullable="true" />
+        <argument
+            android:name="inputType"
+            app:argType="string" />
+        <argument
+            android:name="outputType"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/useFragment"
-        android:name="com.samsung.nnlp.fragments.wb.UseFragment"
+        android:name="com.samsung.netlearn.fragments.wb.UseFragment"
         android:label="fragment_use"
-        tools:layout="@layout/fragment_use" />
+        tools:layout="@layout/fragment_use" >
+        <argument
+            android:name="nn"
+            app:argType="org.neuroph.nnet.MultiLayerPerceptron" />
+        <argument
+            android:name="inputType"
+            app:argType="string" />
+        <argument
+            android:name="outputType"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/datasetFragment"
-        android:name="com.samsung.nnlp.fragments.wb.DatasetFragment"
+        android:name="com.samsung.netlearn.fragments.wb.DatasetFragment"
         android:label="fragment_dataset"
         tools:layout="@layout/fragment_dataset" >
         <argument
             android:name="nn"
-            app:argType="com.samsung.nnlp.models.neuronet.NeuralNetwork"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:argType="org.neuroph.nnet.MultiLayerPerceptron"
+            app:nullable="true" />
         <argument
             android:name="inputType"
             app:argType="string" />
