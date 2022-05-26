@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.samsung.nnlp.R;
+import com.samsung.netlearn.R;
 
 
 public class SettingsFragment extends Fragment {

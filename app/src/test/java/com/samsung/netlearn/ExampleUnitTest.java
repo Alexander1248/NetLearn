@@ -1,4 +1,4 @@
-package com.samsung.nnlp;
+package com.samsung.netlearn;
 
 import org.junit.Test;
 

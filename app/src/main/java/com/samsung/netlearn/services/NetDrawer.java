@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
-import com.samsung.nnlp.R;
+import com.samsung.netlearn.R;
 
 import org.neuroph.core.Neuron;
 import org.neuroph.nnet.MultiLayerPerceptron;

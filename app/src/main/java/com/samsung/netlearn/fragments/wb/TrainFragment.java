@@ -13,10 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
-import com.samsung.nnlp.R;
+import com.samsung.netlearn.R;
 
 import org.neuroph.nnet.MultiLayerPerceptron;
-import org.neuroph.nnet.learning.MomentumBackpropagation;
 
 
 public class TrainFragment extends Fragment {

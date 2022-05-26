@@ -15,7 +15,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 import com.samsung.netlearn.models.adapters.LayerAdapter;
-import com.samsung.nnlp.R;
+import com.samsung.netlearn.R;
 
 import org.neuroph.nnet.MultiLayerPerceptron;
 

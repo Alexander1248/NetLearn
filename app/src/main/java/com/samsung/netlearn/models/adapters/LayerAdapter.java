@@ -11,7 +11,7 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.samsung.nnlp.R;
+import com.samsung.netlearn.R;
 
 import org.neuroph.nnet.MultiLayerPerceptron;
 

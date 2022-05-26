@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
-import com.samsung.nnlp.R;
+import com.samsung.netlearn.R;
 import com.samsung.netlearn.fragments.wb.datatype.InputDigitFragment;
 import com.samsung.netlearn.fragments.wb.datatype.InputImageFragment;
 import com.samsung.netlearn.models.threads.TrainThread;

@@ -14,7 +14,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.samsung.nnlp.R;
+
+import com.samsung.netlearn.R;
 
 import org.neuroph.nnet.MultiLayerPerceptron;
 

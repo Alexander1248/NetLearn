@@ -14,7 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.samsung.nnlp.R;
+import com.samsung.netlearn.R;
 import com.samsung.netlearn.activities.FileActivity;
 import com.samsung.netlearn.models.adapters.FileAdapter;
 

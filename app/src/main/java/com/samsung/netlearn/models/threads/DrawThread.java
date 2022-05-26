@@ -8,7 +8,7 @@ import android.view.SurfaceHolder;
 import androidx.annotation.RequiresApi;
 
 import com.samsung.netlearn.services.NetDrawer;
-import com.samsung.nnlp.R;
+import com.samsung.netlearn.R;
 
 import org.neuroph.nnet.MultiLayerPerceptron;
 

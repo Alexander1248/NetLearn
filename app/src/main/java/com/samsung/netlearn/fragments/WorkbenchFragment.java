@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 
 import com.samsung.netlearn.models.NetView;
 import com.samsung.netlearn.models.threads.TrainThread;
-import com.samsung.nnlp.R;
+import com.samsung.netlearn.R;
 
 import org.neuroph.nnet.MultiLayerPerceptron;
 import org.neuroph.nnet.learning.BackPropagation;
