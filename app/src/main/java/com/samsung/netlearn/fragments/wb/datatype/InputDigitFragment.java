@@ -60,9 +60,8 @@ public class InputDigitFragment extends Fragment {
                 str.append(text.getText().toString()).append(" ");
             }
             if (notNull) {
-                stringAdapter.strings.add(str.toString());
-                stringAdapter.notifyDataSetChanged();
-                getArguments().putStringArrayList("data", stringAdapter.strings);
+                stringAdapter.addString(str.toString());
+                getArguments().putStringArrayList("data", stringAdapter.getData());
             }
         });
         return view;

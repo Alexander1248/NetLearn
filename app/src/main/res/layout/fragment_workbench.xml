@@ -25,7 +25,8 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/edit"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
 
             android:background="@drawable/roundcorner"
             android:layout_margin="4dp"
@@ -36,7 +37,8 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/train"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
 
             android:background="@drawable/roundcorner"
             android:layout_margin="4dp"
@@ -47,7 +49,8 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/use"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
 
             android:background="@drawable/roundcorner"
             android:layout_margin="4dp"
@@ -58,7 +61,8 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/save"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
 
             android:background="@drawable/roundcorner"
             android:layout_margin="4dp"
@@ -69,7 +73,8 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/load"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
 
             android:background="@drawable/roundcorner"
             android:layout_margin="4dp"
@@ -80,7 +85,8 @@
         <TextView
             android:id="@+id/error_rate"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:text="Error rate: 100%"
             android:textSize="20sp" />
 
@@ -88,14 +94,16 @@
             android:id="@+id/learning_progress"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:scaleX="1"
             android:scaleY="3" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/stop_train"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
 
             android:background="@drawable/roundcorner"
             android:layout_margin="4dp"

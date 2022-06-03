@@ -83,12 +83,22 @@ public class UseFragment extends Fragment {
         Button button = view.findViewById(R.id.calculate);
         button.setOnClickListener(view1 -> {
             double[] in = new double[inputs.length];
-            for (int i = 0; i < inputs.length; i++) in[i] = Double.parseDouble(inputs[i].getText().toString());
+            boolean notNull = true;
+            for (int i = 0; i < inputs.length; i++) {
+                if (inputs[i].getText().length() > 0)
+                    in[i] = Double.parseDouble(inputs[i].getText().toString());
+                else {
+                    notNull = false;
+                    break;
+                }
+            }
+            if (notNull) {
+                network.setInput(in);
+                network.calculate();
 
-            network.setInput(in);
-            network.calculate();
-
-            for (int i = 0; i < network.getOutputsCount(); i++) outputs[i].setText(String.format("%.2f", network.getOutput()[i]));
+                for (int i = 0; i < network.getOutputsCount(); i++)
+                    outputs[i].setText(String.format("%.2f", network.getOutput()[i]));
+            }
         });
 
         return view;

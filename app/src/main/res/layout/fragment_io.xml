@@ -1,7 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.samsung.netlearn.fragments.wb.IOFragment"
-    android:background="@color/gray"/>
+    android:orientation="vertical"
+    android:background="@color/gray">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_height="0dp"
+        android:layout_weight="5"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+        <EditText
+            android:id="@+id/filename"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Filename"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/io_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/roundcorner"
+            android:layout_weight="1"
+            android:text="Button"/>
+    </LinearLayout>
+</LinearLayout>

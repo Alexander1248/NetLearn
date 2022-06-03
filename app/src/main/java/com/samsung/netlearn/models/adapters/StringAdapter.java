@@ -13,9 +13,18 @@ import com.samsung.netlearn.R;
 import java.util.ArrayList;
 
 public class StringAdapter extends RecyclerView.Adapter<StringAdapter.StringHolder> {
-    public final ArrayList<String> strings = new ArrayList<>();
+    private final ArrayList<String> strings = new ArrayList<>();
 
     public StringAdapter() {
+    }
+
+    public void addString(String str) {
+        strings.add(str);
+        notifyDataSetChanged();
+    }
+
+    public ArrayList<String> getData() {
+        return strings;
     }
 
     @NonNull

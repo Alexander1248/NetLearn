@@ -111,6 +111,9 @@
         <argument
             android:name="outputType"
             app:argType="string" />
+        <action
+            android:id="@+id/io_to_wb"
+            app:destination="@id/workbenchFragment" />
     </fragment>
     <fragment
         android:id="@+id/useFragment"

@@ -4,12 +4,14 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 
 import com.samsung.netlearn.models.NetView;
 import com.samsung.netlearn.models.threads.TrainThread;
@@ -83,10 +85,14 @@ public class WorkbenchFragment extends Fragment {
         edit.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.to_edit, bundle));
         train.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.to_train, bundle));
         use.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.to_use, bundle));
-        bundle.putBoolean("state", false);
-        save.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.to_io, bundle));
-        bundle.putBoolean("state", true);
-        load.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.to_io, bundle));
+        save.setOnClickListener(view1 -> {
+            bundle.putBoolean("state", false);
+            NavHostFragment.findNavController(this).navigate(R.id.to_io, bundle);
+        });
+        load.setOnClickListener(view1 -> {
+            bundle.putBoolean("state", true);
+            NavHostFragment.findNavController(this).navigate(R.id.to_io, bundle);
+        });
         return view;
     }
 }
